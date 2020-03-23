@@ -10,7 +10,7 @@ def request_idList(string):
     :param string:
     :return:
     """
-    Entrez.email = "ge39nuy@mytum.de"
+    Entrez.email = "maximustinovburner@gmail.com"
     handle = Entrez.esearch(db="pubmed", term=string, retmax=200)
     record = Entrez.read(handle)
     handle.close()
