@@ -3,7 +3,7 @@
 
 A Flask project. Find academic information about a researcher.
 
-
+dist.zip contains the runnable .exe
 
 
 
