@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<title>AuthorEXP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html, body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Roboto", sans-serif
+    }
+</style>
+
+
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+        <!-- Left Column -->
+        <div class="w3-third">
+
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+                    <div class="w3-container w3-center w3-padding-64 w3-row">
+                        <div class="w3-quarter w3-container"></div>
+                        <img src={{ img }} alt="Avatar" class="w3-circle w3-center w3-half">
+                    </div>
+                    <div class="w3-container w3-text-black">
+                        <h2> {{ name }} </h2>
+                    </div>
+                </div>
+                <div class="w3-container">
+                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Scientist</p>
+                    <p>Contributed to {{ IDList }} Papers</p>
+                    <hr>
+                    {% if googles %}
+                    <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Areas Of
+                        Expertise</b>
+                    </p>
+                    <p>{% for i in googles %}{% if loop.index==loop.length %}{{ i }} {% else %} {{ i }},
+                    {% endif %}{% endfor %} </p>
+                    <hr>
+                    {% endif %}
+                    <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Most Important
+                        Topics</b>
+                    </p>
+                    <p>{% for e in keys %}{% if loop.index==loop.length %} {{ e }} {% else %} {{ e }},
+                    {% endif %}{% endfor %} </p>
+                    <br>
+
+                </div>
+            </div>
+            <br>
+            <a href="{{ url_for('clearing') }}" class="w3-btn w3-teal">Return</a>
+            <!-- End Left Column -->
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+            {% if solo[0] %}
+                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                    <h2 class="w3-text-grey w3-padding-16">Solo Publishings</h2>
+                    {% for i in solo[0] %}
+                        <hr>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b><a
+                                    href="https://www.ncbi.nlm.nih.gov/pubmed/{{ solo[0][loop.index0] }}">{{ solo[1][loop.index0] }}</a></b>
+                            </h5>
+                            <p>{{ solo[2][loop.index0] }}</p>
+                        </div>
+                    {% endfor %}
+                    <br>
+                </div>
+            {% endif %}
+            {% if last[0] %}
+                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                    <h2 class="w3-text-grey w3-padding-16">Last Author</h2>
+                    {% for i in last[0] %}
+                        <hr>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b><a
+                                    href="https://www.ncbi.nlm.nih.gov/pubmed/{{ last[0][loop.index0] }}">{{ last[1][loop.index0] }}</a></b>
+                            </h5>
+                            <p>{{ last[2][loop.index0] }}</p>
+                        </div>
+                    {% endfor %}
+                    <br>
+                </div>
+            {% endif %}
+            {% if first[0] %}
+                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                    <h2 class="w3-text-grey w3-padding-16">First Author</h2>
+                    {% for i in first[0] %}
+                        <hr>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b><a
+                                    href="https://www.ncbi.nlm.nih.gov/pubmed/{{ first[0][loop.index0] }}">{{ first[1][loop.index0] }}</a></b>
+                            </h5>
+                            <p>{{ first[2][loop.index0] }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <!-- End Right Column -->
+        </div>
+
+        <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>
