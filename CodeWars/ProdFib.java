@@ -4,8 +4,7 @@
 public class ProdFib { // must be public for codewars	
   
 	public static long nthFibonacciTerm(int n) {
-  //this returns the nth fibonacci term in fixed time
-  
+		//this returns the nth fibonacci number in fixed time
     double squareRootOf5 = Math.sqrt(5);
     double phi = (1 + squareRootOf5)/2;
     long nthTerm = (long) ((Math.pow(phi, n) - Math.pow(-phi, -n))/squareRootOf5);
@@ -13,7 +12,7 @@ public class ProdFib { // must be public for codewars
     }
   
 	public static long[] productFib(long prod) {
-    //this returns the product
+    //this returns the product of consecutive fibonacci numbers
     if(prod<14000000){
       
     
@@ -58,9 +57,7 @@ public class ProdFib { // must be public for codewars
       }
     }
     }
-    
     long[] res = {-1,-1,0};
     return res;
-    
    }
 }
